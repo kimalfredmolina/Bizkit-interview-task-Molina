@@ -1,3 +1,22 @@
+### 1. Explanation:
+- I fixed the "def dates_overlap" function. The original code only checked if the start date of the new booking was within the existing booking, which allowed some overlapping bookings such as Jan 8 - Jan 20. I changed it to compare both date ranges so any overlapping booking is correctly rejected.
+
+### 2. Failure:
+- Existing booking: Jan 10 - Jan 15  Original code wrongly allowed: Jan 8 - Jan 20
+- After the fix: Booking is correctly blocked.
+
+### 3. What AI i use:
+- I used ChatGPT to help me complete the code because im not good at memorizing code, functions, and conditions. I first read the task, found the related function, and tested the bug. Then I copied that function into ChatGPT and explained the issue. After applying the suggested fix, i tested and debugged it to make sure the output matched the expected result
+        
+
+<br>
+<br>
+<br>
+
+# 
+# Sorry, I forgot to read the instructions carefully. Please ignore the extra details below.
+
+
 - In this function "def dates_overlap" the problem is when a user books from Jan 8 - Jan 20, it will still proceed because of this code
     "return start_b <= start_a <= end_b" this condition only checks if the start date of the new booking is within the existing booked dates so i changed it to "return start_a <= end_b and end_a >= start_b" this checks both the start and end dates of the new booking, if both conditions are "True" the booking will not be accepted
 
